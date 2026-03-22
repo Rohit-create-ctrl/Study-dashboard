@@ -1,0 +1,40 @@
+{
+  "name": "temp-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:seed": "node --env-file=.env.local src/scripts/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "clsx": "^2.1.1",
+    "cookie": "^1.1.1",
+    "framer-motion": "^12.38.0",
+    "groq-sdk": "^1.1.1",
+    "jose": "^6.2.2",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^0.577.0",
+    "mongoose": "^9.3.1",
+    "next": "16.2.1",
+    "next-auth": "^5.0.0-beta.30",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hot-toast": "^2.6.0",
+    "swr": "^2.4.1",
+    "tailwind-merge": "^3.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
