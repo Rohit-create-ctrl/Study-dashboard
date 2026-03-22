@@ -40,8 +40,19 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-node_modules
+# Ignore all node_modules directories
+node_modules/
+
+# Ignore environment files
 .env
-.next
-dist
-build
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore Next.js build output
+.next/
+
+# Ignore other build outputs
+dist/
+build/  
