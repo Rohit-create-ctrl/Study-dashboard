@@ -1,3 +1,6 @@
+🚀 Study Dashboard — An all-in-one student productivity platform to manage subjects, tasks, notes, and study sessions seamlessly. Designed with a clean UI and optimized performance, it helps students stay organized, track progress, and boost productivity.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
