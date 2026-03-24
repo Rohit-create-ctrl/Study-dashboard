@@ -10,6 +10,7 @@
     "db:seed": "node --env-file=.env.local src/scripts/seed.js"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "cookie": "^1.1.1",
