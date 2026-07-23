@@ -1,29 +1,30 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
-const path = require('path');
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-const envContent = fs.readFileSync(path.resolve(__dirname, '.env'), 'utf-8');
-const match = envContent.match(/MONGODB_URI=(.*)/);
-const uri = match ? match[1].trim().replace(/^"|"$/g, '') : null;
+const uri = process.env.MONGODB_URI;
 
 if (!uri) {
-  console.error('MONGODB_URI is not defined in .env file');
+  console.error("❌ MONGODB_URI is missing in the .env file.");
   process.exit(1);
 }
 
-console.log('Attempting to connect to MongoDB...');
-// Log just the cluster info to see if URI is correct
-let logUri = uri;
-try { logUri = uri.split('@')[1] || uri.substring(0, 30); } catch(e) {}
-console.log('Target cluster:', logUri);
+async function testConnection() {
+  try {
+    console.log("🔄 Connecting to MongoDB...");
 
-mongoose.connect(uri)
-  .then(() => {
-    console.log('Successfully connected to MongoDB!');
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error('MongoDB connection error. Details:');
-    console.error(err);
+    await mongoose.connect(uri);
+
+    console.log("✅ Successfully connected to MongoDB!");
+    console.log(`📦 Database: ${mongoose.connection.name}`);
+    console.log(`🌐 Host: ${mongoose.connection.host}`);
+
+    await mongoose.connection.close();
+    console.log("🔌 Connection closed.");
+  } catch (error) {
+    console.error("❌ Failed to connect to MongoDB.");
+    console.error(error.message);
     process.exit(1);
-  });
+  }
+}
+
+testConnection();
